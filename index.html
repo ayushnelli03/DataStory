@@ -4,11 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>English Premier League - Data Story</title>
+    <title>Analyzing Football Performance Through Data</title>
     <style>
-        /* Global Styles */
         body {
-            font-family: 'Georgia', serif;  /* Medium uses a serif font */
+            font-family: 'Georgia', serif;  
             margin: 0;
             padding: 0;
             background-color: #fafafa;
@@ -17,7 +16,7 @@
         }
 
         header {
-            background-color: #003c59; /* Dark Blue */
+            background-color: #003c59; 
             color: white;
             text-align: center;
             padding: 30px 20px;
@@ -29,14 +28,12 @@
             margin: 0;
         }
 
-        /* Container for all content */
         .container {
             width: 80%;
             max-width: 1000px;
             margin: 30px auto;
         }
 
-        /* Section Titles */
         h2 {
             font-size: 2.5em;
             color: #003c59;
@@ -51,57 +48,36 @@
             margin-bottom: 30px;
         }
 
-        /* Image Styles */
+        .insights {
+            font-size: 1.25em;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .info {
+            font-size: 1rem;
+            color: #fff;
+            font-style: italic;
+        }
+
         .content img {
             width: 100%;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             margin-top: 20px;
-            margin-bottom: 40px;
         }
 
-        /* Stats Card Styles */
-        .stat-cards {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 40px;
-        }
-
-        .stat-card {
-            background-color: #ffb81c;
-            color: #003c59;
-            padding: 20px;
-            border-radius: 8px;
-            width: 30%;
-            text-align: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .stat-card h3 {
-            margin-top: 0;
-            font-size: 1.5em;
-            font-weight: bold;
-        }
-
-        .stat-card p {
-            font-size: 1.2em;
-        }
-
-        /* Button */
-        .button {
-            display: inline-block;
-            background-color: #ffb81c;
-            color: #003c59;
-            padding: 12px 25px;
+        ul li {
             font-size: 1.25em;
-            text-decoration: none;
-            border-radius: 5px;
-            margin-top: 20px;
-        }
+            color: #555;
+            margin-bottom: 10px;
+        }     
 
-        .button:hover {
-            background-color: #f1c40f;
-        }
+        ol li {
+            font-size: 1.1em;
+            color: #555;
+            margin-bottom: 10px;
+        }      
 
         /* Responsive Styles */
         @media (max-width: 768px) {
@@ -124,40 +100,140 @@
 <body>
 
     <header>
-        <h1>English Premier League - Data Story</h1>
+        <h1>Analyzing Football Performance Through Data</h1>
+        <p class="info">A data story by Ayush Nelli</p>
     </header>
 
     <div class="container">
-        <!-- Section 1: Overview -->
+        <!-- Section 1: Introduction -->
         <section>
-            
+            <p class="content">Football is more than just a game—it's a sport driven by strategy, performance, and unpredictable moments. As a football enthusiast, I've always been fascinated by how data can reveal patterns in team performance and match outcomes. When I came across this dataset, I saw an opportunity to explore football through the lens of data analysis, uncovering insights that go beyond what we see on the pitch.
+            </p><p class="content">
+             The dataset is sourced from 
+                <a href="https://datahub.io" target="_blank">DataHub.io</a> 
+                via 
+                <a href="https://football-data.co.uk" target="_blank">Football-Data.co.uk</a>. 
+                It provides comprehensive statistical data on English Premier League matches starting from the 1993/1994 season up to the current season. 
+                It includes metrics such as goals scored, attempted shots, shots on target, yellow and red cards, fouls and corners - split into home and away statistics. 
+                This dataset provides an excellent foundation for answering key questions related to trends and team performance.
+            </p>
+            <p class="insights">To analyze this data, I focused on five main guiding questions:</p>
+                <ol>
+                    <li>Home vs. Away Performance: Do teams perform better at home compared to away? How significant is home advantage in goal scoring?</li>
+                    <li>Shooting Performance & Team Standings: Do higher-ranked teams exhibit better shot accuracy and efficiency? How crucial is finishing ability in determining league standings?</li>
+                    <li>The Impact of Discipline on Goal Scoring: Is there a correlation between the number of yellow/red cards a team receives and their goal-scoring performance? </li>
+                    <li>The Rise of Comeback Wins: How has the number of teams overturning a halftime deficit to win evolved over the past decade? Are teams becoming better at second-half comebacks?</li>
+                    <li>Predicting Match Outcomes: Can machine learning models predict the number of goals a team will score based on past performance? How accurate is our model in forecasting results?</li>
+                </ol>
+            <p class="content">Each section of this analysis focuses on one of these questions by using data exploration, visualization and predictive modeling to provide insights. Let's start by looking at how teams perform at home versus away and whether home advantage actually makes a difference.
+            </p>
         </section>
 
-        <!-- Section 2: Stats Cards -->
+        <!-- Section 2: Guiding Question 1 -->
         <section>
-            <h2>Guiding Question 1</h2>
-            <div class='tableauPlaceholder' id='viz1739428328323' style='position: relative'><noscript><a href='#'><img alt='Dashboard 1 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Vi&#47;Visualizations_17394283050400&#47;Dashboard1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='Visualizations_17394283050400&#47;Dashboard1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Vi&#47;Visualizations_17394283050400&#47;Dashboard1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1739428328323');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='1000px';vizElement.style.height='827px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='1000px';vizElement.style.height='827px';} else { vizElement.style.width='100%';vizElement.style.height='727px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+            <h2>Home vs Away Performance</h2>
+            <p class="content">One of the most widely debated aspects of football is whether playing at home provides a significant advantage. Fans, familiar stadiums, and reduced travel stress are often cited as reasons why teams tend to perform better on their home turf. But does the data support this theory?<br>
+                To investigate, I analyzed the total number of goals scored by teams when playing at home versus when playing away. The results reveal a consistent pattern: teams tend to score more goals at home than away. This trend suggests that home advantage is a real phenomenon, likely influenced by factors such as crowd support and pitch familiarity.
+            </p>
+            <center>
+            <div class='tableauPlaceholder' id='viz1739606563712' style='position: relative'><noscript><a href='#'><img alt='Dashboard 1 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Go&#47;GoalTotal&#47;Dashboard1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='GoalTotal&#47;Dashboard1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Go&#47;GoalTotal&#47;Dashboard1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1739606563712');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='695px';vizElement.style.height='827px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='695px';vizElement.style.height='827px';} else { vizElement.style.width='100%';vizElement.style.height='727px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>            
+            </center>
+            <p class="insights">A closer look at the 2023-24 season bar chart reveals additional insights:
+            <ul>
+                <li><strong>Manchester City, Arsenal and Liverpool</strong> have high goal counts both at home and away, suggesting they are consistently strong regardless of location.</li>
+                <li><strong>Newcastle United and Aston Villa</strong> show a significant increase in home goals compared to their away performance, indicating they thrive in their home environment.</li>
+                <li><strong>Crystal Palace and Manchester United</strong> exhibit noticeably lower goal counts away from home, suggesting difficulties in attacking play when playing on the road.</li>    
+            </ul>
+            </p>
         </section>
 
-        <!-- Section 3: Data Visualization (Charts) -->
+        <!-- Section 3: Guiding Question 2 -->
         <section>
-            <h2>Guiding Question 2</h2>
-            <p class="content">Below is a chart showcasing the current league standings, with points and goal differences for each team. These data points reflect the ongoing season:</p>
+            <h2>Shooting Performance & Team Standings</h2>
+            <p class="content">A team's ability to convert chances into goals is often what separates the best from the rest. While possession and passing accuracy are important, ultimately, it is shooting efficiency that determines match outcomes. This section explores whether higher-ranked teams exhibit better shot accuracy and efficiency compared to lower-ranked teams.<br>
+                Here are two cluster bar charts(2023-24 season): one depicting the teams attempted shots(HS for home/AS for away), shots on target(HST for home/AST for away), and goals scored(FTHG for home/FTAG for away) for home games, and the other for away games.</p>
+                <center>
+                    <div class='tableauPlaceholder' id='viz1739606594610' style='position: relative'><noscript><a href='#'><img alt='Dashboard 2 ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ac&#47;Accuracy_17396056354300&#47;Dashboard2&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='Accuracy_17396056354300&#47;Dashboard2' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Ac&#47;Accuracy_17396056354300&#47;Dashboard2&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='language' value='en-US' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1739606594610');                    var vizElement = divElement.getElementsByTagName('object')[0];                    if ( divElement.offsetWidth > 800 ) { vizElement.style.width='900px';vizElement.style.height='827px';} else if ( divElement.offsetWidth > 500 ) { vizElement.style.width='900px';vizElement.style.height='827px';} else { vizElement.style.width='100%';vizElement.style.height='727px';}                     var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+                </center>
+            <p class="content">Below is a table that that offers better understanding of the data. The teams are in the order they finished the league at the end of the 2023-24 season.
+            <img src="Table.png"></p>
+            <p class="insights">The data reveals some interesting trends:</p>
+            <ul>
+                <li><strong>Newcastle United</strong> has the highest shot efficiency but finished 7th, suggesting that while finishing ability is important, other factors like defense and match control play a significant role.</li>
+                <li><strong>Manchester City</strong> has the best shot accuracy but only the 4th best shot efficiency, indicating that while they create quality chances, finishing consistency varies.</li>
+                <li><strong>Liverpool and Manchester United</strong> struggle with efficiency, suggesting they need better finishing to improve their standing.</li>
+            </ul>
+            <p class="content">In general, higher-ranked teams do tend to have better shot accuracy and efficiency. However, ranking is not determined solely by shooting performance—other factors like defensive strength, chance creation, and match control play a significant role in overall success.</p>
         </section>
 
-        <!-- Section 4: Top Players -->
+        <!-- Section 4: Guiding Question 3 -->
         <section>
-            <h2>Guiding Question 3</h2>
-            <p class="content">The Premier League has seen outstanding individual performances this season. Here are the top-rated players:</p>
+            <h2>The Impact of Discipline on Goal Scoring</h2>
+            <p class="content">
+                Discipline plays a crucial role in football, affecting not just the defensive stability of a team but also its attacking output. The question arises: does accumulating more yellow and red cards have a significant impact on the number of goals a team scores?<br>
+                To investigate this, I analyzed the correlation between the total number of cards (yellow and red) and goals scored for both home and away teams. 
+            </p>
+            <center>
+                <div class="tableauPlaceholder" id="viz1739606787377" style="position: relative;"><noscript><a href="#"><img alt="Dashboard 4" src="https://public.tableau.com/static/images/Fo/Fouls_17396046804730/Dashboard4/1_rss.png" style="border: none" /></a></noscript><object class="tableauViz" style="width: 1146px; height: 501px;"><param name="host_url" value="https%3A%2F%2Fpublic.tableau.com%2F" /><param name="embed_code_version" value="3" /><param name="site_root" value="" /><param name="name" value="Fouls_17396046804730/Dashboard4" /><param name="tabs" value="no" /><param name="toolbar" value="yes" /><param name="static_image" value="https://public.tableau.com/static/images/Fo/Fouls_17396046804730/Dashboard4/1.png" /><param name="animate_transition" value="yes" /><param name="display_static_image" value="yes" /><param name="display_spinner" value="yes" /><param name="display_overlay" value="yes" /><param name="display_count" value="yes" /><param name="language" value="en-US" /></object></div>
+            </center>
+            <p class="insights">The trendline equations from the analysis are:</p>
+            <ul>
+                <li>Home Goals = -0.0404 * Total Home Cards + 1.8799</li>
+                <li>Away Goals = -0.1094 * Total Away Cards + 1.7354</li>
+            </ul>
+            <p class="content">
+                These equations suggest a slight negative correlation, meaning that as the number of cards increases, goal-scoring tends to decrease. However, the effect is not particularly significant.<br>
+                The steeper slope in the away trendline suggests that discipline issues may affect away performances more than home games. This could be due to factors like referee bias or crowd influence.
+            </p>
         </section>
 
-        <!-- Section 5: Interactive Fixtures -->
+        <!-- Section 5: Guiding Question 4 -->
         <section>
-            <h2>Guiding Question 4</h2>
-            <p class="content">Keep up with the latest fixtures and match results. Click below to view upcoming games:</p>
+            <h2>The Rise of Comeback Wins</h2>
+            <p class="content">One of the most exhilarating aspects of football is witnessing a dramatic comeback, where a team overturns a halftime deficit to secure a victory. This type of turnaround highlights the unpredictability of the sport and the mental resilience of teams. Over the past decade, the frequency of such comebacks has been a topic of interest. Have teams become more proficient at making a strong second-half recovery, or is this simply a result of the increasing pace and intensity of modern football?<br>
+                To investigate this trend, I analyzed data on matches where the leading team at halftime went on to lose, and where teams managed to overcome a halftime deficit to win.
+            </p>                
+            <center>
+                <div class="tableauPlaceholder" id="viz1739604768122" style="position: relative;"><noscript><a href="#"><img alt="Dashboard 5" src="https://public.tableau.com/static/images/Co/ComebackTrends/Dashboard5/1_rss.png" style="border: none" /></a></noscript><object class="tableauViz" style="width: 800px; height: 501px;"><param name="host_url" value="https%3A%2F%2Fpublic.tableau.com%2F" /><param name="embed_code_version" value="3" /><param name="site_root" value="" /><param name="name" value="ComebackTrends/Dashboard5" /><param name="tabs" value="no" /><param name="toolbar" value="yes" /><param name="static_image" value="https://public.tableau.com/static/images/Co/ComebackTrends/Dashboard5/1.png" /><param name="animate_transition" value="yes" /><param name="display_static_image" value="yes" /><param name="display_spinner" value="yes" /><param name="display_overlay" value="yes" /><param name="display_count" value="yes" /><param name="language" value="en-US" /></object></div>
+            </center>
+            <ul>
+            <li>We see that the 2014-15 season, there were only 11 comeback wins after trailing at halftime. Fast forward to the 2023-24 season, the number of wins is more than double.</li></ul>
+            <p class="content">The data suggests that teams are capable of overturning halftime deficits, with the number of comebacks rising over the past decade. Whether through tactical adjustments, improved fitness, or psychological resilience, the ability to mount a second-half comeback has become a defining feature of modern football.</p>
         </section>
+
+        <!-- Section 6: Guiding Question 5 -->
+        <section>
+            <h2>Predicting Match Outcomes</h2>
+            <p class="content">Predicting match outcomes in football has long been a challenging yet intriguing task. With so many variables at play—team form, injuries, tactics, and even luck—it's difficult to forecast the exact number of goals a team will score. However, with the power of machine learning, it is possible to predict outcomes based on historical data. In this section, I utilized a Decision Tree Regressor to predict the number of goals scored by both home and away teams in a match, and to forecast the overall match result.<br>
+                I trained two separate models: one to predict the home team's goals and another for the away team's goals. These models use past performance data such as <strong>goals scored, shots attempted, shots on target, and corners</strong> from previous matches to make predictions.
+            <img src="Model.png"></p>
+            <p class="insights">
+                The performance of the models was evaluated using the <strong>R-squared and Root Mean Squared Error (RMSE)</strong> metrics:
+            </p>
+            <ul>
+                <li><strong>Home Team Model: </strong>The R-squared value of 0.60 and RMSE of 0.83911</li>
+                <li><strong>Away Team Model: </strong>The R-squared value of 0.59 and RMSE of 0.777</li>
+                <li>After <strong>cross-validation</strong>, the R-squared value for the home team model dropped slightly to 0.58166, while the away team model's R-squared settled at 0.56244.</li>
+            </ul>
+            <p class="content">
+                RMSE values of 0.7 and 0.8 might seem small in absolute terms—indicating relatively low errors. However, in the context of football matches a goal can change the outcome of a game. In the above example, the model predicts the match will end 1-1, the RMSE value suggests that the actual result could range from 2-1 or 0-2 for the home side, or vice versa.<br>
+                The model lacks key features that can significantly influence match outcomes, such as team form, injuries, and tactical adjustments. These factors, which are crucial in real-life match scenarios, are not captured in the current model.<br>
+                Given its limitations, I would personally rather trust my gut feeling while betting on the result of the game and consider factors beyond just the numbers. Football is a game of unpredictability, and while data-driven models can be valuable tools, they can never fully replicate the nuanced dynamics that play out on the pitch.<br>
+            </p>
+        </section>
+
+        <!-- Section 7: Conclusion -->
+        <section>
+            <h2>Conclusion: Key Takeaways from the Analysis</h2>
+            <p class="content">
+                <strong>Home vs Away Performance:</strong> Teams tend to score more goals at home than away, reinforcing the significance of home advantage. Factors such as crowd support, pitch familiarity, and referee bias could contribute to this trend.<br>
+                <strong>Shooting Performance & Team Standings:</strong> While higher-ranked teams generally have better shot accuracy and efficiency, league standings are influenced by multiple factors beyond just finishing ability, including defensive strength and match control.<br>
+                <strong>The Impact of Discipline on Goal Scoring:</strong> There is a slight negative correlation between the number of cards and goals scored, with away teams being more affected than home teams. However, the effect is weak, suggesting that other tactical and situational factors play a more significant role.<br>
+                <strong>The Rise of Comeback Wins:</strong> Over the last decade, the number of teams coming back from a halftime deficit to win has increased, pointing to improved tactical adjustments, fitness levels, and mental resilience in modern football.<br>
+                <strong>Predicting Match Outcomes:</strong> The regression model provides a useful but imperfect prediction of match scores. Given football's unpredictability and the absence of key contextual factors (injuries, tactics, form), relying solely on a statistical model remains limited.</p>
+            <p class="content">Ultimately, while data-driven insights help in understanding trends and team performance, football remains an unpredictable game influenced by numerous intangible factors.</p>                
+        </section>
+
     </div>
-
-
 </body>
 </html>
